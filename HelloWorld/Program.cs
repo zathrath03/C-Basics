@@ -26,6 +26,10 @@ namespace HelloWorld
             int gameScore;
             decimal particlesPerMillion;
             bool processedCustomer;
+
+            var message = "Hello World!";
+            // message = 0; Cannot implicitly convert type 'int' to 'string'
+            Console.WriteLine(message);
             
             Console.ReadKey();
         }
