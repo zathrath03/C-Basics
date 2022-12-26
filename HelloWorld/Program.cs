@@ -54,6 +54,8 @@ namespace HelloWorld
 
             Console.WriteLine("Hello, {0}! You have {1} messages in your inbox. The temperature is {2} celsius.", name, numberOfMessages, temperature);
 
+            Console.WriteLine($"Hello, {name}! You have {numberOfMessages} messages in your inbox. The temperature is {temperature} celsius.");
+
             Console.ReadKey();
         }
     }
