@@ -50,8 +50,9 @@ namespace HelloWorld
             Console.Write(numberOfMessages);
             Console.Write(" messages in your inbox. The temperature is ");
             Console.Write(temperature);
-            Console.Write(" celsius.");
+            Console.WriteLine(" celsius.");
 
+            Console.WriteLine("Hello, {0}! You have {1} messages in your inbox. The temperature is {2} celsius.", name, numberOfMessages, temperature);
 
             Console.ReadKey();
         }
