@@ -12,6 +12,21 @@ namespace HelloWorld
             Console.WriteLine(12.30m);
             Console.WriteLine(true);
             Console.WriteLine(false);
+
+            string firstName = "Bob";
+            Console.WriteLine(firstName);
+            firstName = "Beth";
+            Console.WriteLine(firstName);
+            firstName = "Conrad";
+            Console.WriteLine(firstName);
+            firstName = "Grant";
+            Console.WriteLine(firstName);
+
+            char userOption;
+            int gameScore;
+            decimal particlesPerMillion;
+            bool processedCustomer;
+            
             Console.ReadKey();
         }
     }
