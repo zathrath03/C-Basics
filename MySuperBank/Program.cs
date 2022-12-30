@@ -42,6 +42,8 @@ namespace MySuperBank
             {
                 Console.WriteLine("Correctly rejected withdrawal that results in a negative balance");
             }
+
+            Console.WriteLine(account.GetAccountHistory());
             
         }
     }
