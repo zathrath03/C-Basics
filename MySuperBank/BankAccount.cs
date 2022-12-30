@@ -11,7 +11,6 @@ namespace MySuperBank
 
         public string Number { get;  }
         public string Owner { get; set; }
-        public decimal Balance { get; }
 
         public decimal Balance
         {
