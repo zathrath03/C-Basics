@@ -10,8 +10,11 @@ namespace MySuperBank
     {
         static void Main(string[] args)
         {
-            var account = new BankAccount("John", 10000);
-            Console.WriteLine($"Account {account.Number} was created for {account.Owner} with a balance of {account.Balance}");
+            for (int i = 0; i < 10; i++)
+            {
+                var account = new BankAccount("John", 10000);
+                Console.WriteLine($"Account {account.Number} was created for {account.Owner} with a balance of {account.Balance}");
+            }
         }
     }
 }
