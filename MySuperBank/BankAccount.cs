@@ -16,12 +16,7 @@ namespace MySuperBank
         {
             get
             {
-                decimal balance = 0;
-                foreach (var transaction in _allTransactions)
-                {
-                    balance += transaction.Amount;
-                }
-                return balance;
+                return _allTransactions.Sum(transaction => transaction.Amount);
             }
         }
 
