@@ -13,9 +13,24 @@ namespace MySuperBank
         public string Owner { get; set; }
         public decimal Balance { get; }
 
+        public decimal Balance
+        {
+            get
+            {
+                decimal balance = 0;
+                foreach (var transaction in _allTransactions)
+                {
+                    balance += transaction.Amount;
+                }
+                return balance;
+            }
+        }
+
         private static int _accountNumberSeed = 1234567890;
 
-        public BankAccount(string ownerName, decimal initialBalance)
+        private readonly List<Transaction> _allTransactions = new List<Transaction>();
+
+        public BankAccount(string ownerName, decimal initialDeposit)
         {
             Owner = ownerName;
             Balance = initialBalance;
