@@ -34,13 +34,13 @@ namespace MySuperBank
             {
                 account.MakeWithdrawal(100000, DateTime.Now, "steeling");
             }
-            catch (InvalidOperationException )
+            catch (InvalidOperationException)
             {
                 Console.WriteLine("Correctly rejected withdrawal that results in a negative balance");
             }
 
             Console.WriteLine(account.GetAccountHistory());
-            
+
         }
     }
 }

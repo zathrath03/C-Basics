@@ -8,7 +8,7 @@ namespace MySuperBank
     public class BankAccount
     {
 
-        public string Number { get;  }
+        public string Number { get; }
         public string Owner { get; set; }
 
         public decimal Balance
@@ -66,7 +66,7 @@ namespace MySuperBank
             {
                 report.AppendLine($"{transaction.Date}\t{transaction.Amount}\t{transaction.Notes}");
             }
-            
+
             return report.ToString();
         }
     }
