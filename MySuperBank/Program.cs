@@ -15,6 +15,34 @@ namespace MySuperBank
 
             account.MakeWithdrawal(120, DateTime.Now, "Programming Course");
             Console.WriteLine(account.Balance);
+
+            try
+            {
+                account.MakeDeposit(-100, DateTime.Now, "steeling");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Correctly rejected negative deposit");
+            }
+
+            try
+            {
+                var invalidAccount = new BankAccount("invalid", -55);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Correctly rejected negative initial balance");
+            }
+
+            try
+            {
+                account.MakeWithdrawal(100000, DateTime.Now, "steeling");
+            }
+            catch (InvalidOperationException )
+            {
+                Console.WriteLine("Correctly rejected withdrawal that results in a negative balance");
+            }
+            
         }
     }
 }
