@@ -48,6 +48,19 @@ namespace MySuperBank
             _allTransactions.Add(deposit);
         }
 
-        public void MakeWithdrawal(decimal amount, DateTime date, string note) { }
+        public void MakeWithdrawal(decimal amount, DateTime date, string note)
+        {
+            if (amount <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), "Amount of withdrawal must be positive");
+
+            }
+            if (Balance - amount < 0)
+            {
+                throw new InvalidOperationException("Insufficient funds for this withdrawal");
+            }
+            var withdrawal = new Transaction(-amount, date, note);
+            _allTransactions.Add(withdrawal);
+        }
     }
 }
