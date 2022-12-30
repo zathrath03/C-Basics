@@ -23,7 +23,7 @@ namespace MySuperBank
 
             try
             {
-                var invalidAccount = new BankAccount("invalid", -55);
+                var unused = new BankAccount("invalid", -55);
             }
             catch (ArgumentOutOfRangeException)
             {
