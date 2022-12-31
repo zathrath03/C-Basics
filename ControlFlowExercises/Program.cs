@@ -11,7 +11,8 @@ namespace ControlFlowExercises
         private static void Main(string[] args)
         {
             //Exercise1();
-            Exercise2();
+            //Exercise2();
+            Exercise3();
         }
 
         private static void Exercise1()
@@ -40,6 +41,20 @@ namespace ControlFlowExercises
             int.TryParse(Console.ReadLine(), out var num2);
 
             Console.WriteLine($"The larger number is {Math.Max(num1, num2)}");
+        }
+
+        private static void Exercise3()
+        {
+            /* Write a program and ask the user to enter the
+             * width and height of an image. Then tell if the
+             * image is landscape or portrait.
+             */
+            Console.Write("Enter the width of the image: ");
+            var width = int.Parse(Console.ReadLine() ?? string.Empty);
+            Console.Write("Enter the height of the image: ");
+            var height = int.Parse(Console.ReadLine() ?? string.Empty);
+
+            Console.WriteLine(width > height ? "The image is landscape" : "The image is portrait");
         }
     }
 
