@@ -14,7 +14,7 @@ namespace ControlFlowExercises
             //Exercise1();
             //Exercise2();
             //Exercise3();
-            Exercise4();
+            //Exercise4();
         }
 
         private static void Exercise1()
@@ -24,7 +24,7 @@ namespace ControlFlowExercises
             //If the user enters a valid number, display "Valid" on the console.
             //Otherwise, display "Invalid".
             Console.WriteLine("Please enter a number between 1 and 10");
-            short.TryParse(Console.ReadLine(), out var input);
+            var input = Convert.ToInt16(Console.ReadLine());
             if (1 <= input && input <= 10)
             {
                 Console.WriteLine("Valid Input");
@@ -38,9 +38,10 @@ namespace ControlFlowExercises
             //Write a program which takes two numbers from the
             //console and displays the maximum of the two.
             Console.Write("Enter the first number: ");
-            int.TryParse(Console.ReadLine(), out var num1);
+            var num1 = Convert.ToInt32(Console.ReadLine());
+
             Console.Write("Enter the second number: ");
-            int.TryParse(Console.ReadLine(), out var num2);
+            var num2 = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine($"The larger number is {Math.Max(num1, num2)}");
         }
@@ -52,9 +53,10 @@ namespace ControlFlowExercises
              * image is landscape or portrait.
              */
             Console.Write("Enter the width of the image: ");
-            var width = int.Parse(Console.ReadLine() ?? string.Empty);
+            var width = Convert.ToInt32(Console.ReadLine());
+
             Console.Write("Enter the height of the image: ");
-            var height = int.Parse(Console.ReadLine() ?? string.Empty);
+            var height = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine(width > height ? "The image is landscape" : "The image is portrait");
         }
@@ -76,9 +78,9 @@ namespace ControlFlowExercises
             const short kphOverPerDemerit = 5;
 
             Console.Write("Enter the speed limit: ");
-            var speedLimit = short.Parse(Console.ReadLine() ?? string.Empty);
+            var speedLimit = Convert.ToInt16(Console.ReadLine());
             Console.Write("Enter the speed of the car: ");
-            var carSpeed = short.Parse(Console.ReadLine() ?? string.Empty);
+            var carSpeed = Convert.ToInt16(Console.ReadLine());
             if (carSpeed > speedLimit)
             {
                 var demerits = (short)((carSpeed - speedLimit) / kphOverPerDemerit);
