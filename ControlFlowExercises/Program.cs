@@ -15,7 +15,7 @@ namespace ControlFlowExercises
     {
         private static void Main()
         {
-            Exercise7();
+            Exercise8();
         }
 
         private static void Exercise1()
@@ -159,6 +159,41 @@ namespace ControlFlowExercises
                 output *= i;
             }
             Console.WriteLine($"{input}! = {output}");
+        }
+
+        private static void Exercise8()
+        {
+            /* Write a program that picks a random number between 1 and 10.
+             * Give the user 4 chances to guess the number. If the user
+             * guesses the number, display “You won"; otherwise, display “You
+             * lost". (To make sure the program is behaving correctly, you can
+             * display the secret number on the console first.)
+             */
+
+            var answer = (byte) new Random().Next(1, 11);
+            byte guess = 0;
+            Console.WriteLine("I have chosen a number between 1 and 10 (inclusive)");
+            Console.WriteLine("You have four chances to guess my number.");
+            Console.WriteLine($"The answer is {answer}");
+
+            for (byte turn = 1; turn < 5; turn++)
+            {
+                
+                do
+                {
+                    Console.Write($"Turn {turn}: What's your guess? ");
+
+                } while (!byte.TryParse(Console.ReadLine(), out guess));
+
+                if (guess != answer) continue;
+                Console.WriteLine("You won");
+                break;
+            }
+
+            if (guess != answer)
+            {
+                Console.WriteLine("You lost");
+            }
         }
     }
 
