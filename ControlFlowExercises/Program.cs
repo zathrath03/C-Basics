@@ -38,7 +38,8 @@ namespace ControlFlowExercises
             Console.Write("Enter the second number: ");
             var num2 = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"The larger number is {Math.Max(num1, num2)}");
+            var max = num1 > num2 ? num1 : num2;
+            Console.WriteLine($"The larger number is {max}");
         }
 
         private static void Exercise3()
