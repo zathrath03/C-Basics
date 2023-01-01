@@ -53,7 +53,8 @@ namespace ControlFlowExercises
             Console.Write("Enter the height of the image: ");
             var height = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine(width > height ? "The image is landscape" : "The image is portrait");
+            var orientation = width > height ? "landscape" : "portrait";
+            Console.WriteLine($"The image is {orientation}");
         }
 
         private static void Exercise4()
