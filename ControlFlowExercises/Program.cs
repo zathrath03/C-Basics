@@ -148,10 +148,9 @@ namespace ControlFlowExercises
             do
             {
                 Console.Write("Please enter a positive number below 20: ");
-                try // handling invalid entries
-                    input = Convert.ToByte(Console.ReadLine());
-                catch
+                if (!byte.TryParse(Console.ReadLine(), out input))
                     input = 20;
+                
             } while (input > 19);
             
             ulong output = 1;
