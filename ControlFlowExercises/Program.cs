@@ -205,10 +205,15 @@ namespace ControlFlowExercises
              */
 
             Console.WriteLine("Enter a series of numbers separated by commas.");
-            var input = Console.ReadLine();
-            var tokens = input.Split(',');
-            var numbers = Array.ConvertAll(tokens, int.Parse);
-            Console.WriteLine($"The maximum is {numbers.Max()}");
+            try
+            {
+                var max = Array.ConvertAll(Console.ReadLine().Split(','), int.Parse).Max();
+                Console.WriteLine($"The maximum is {max}");
+            }
+            catch
+            {
+                Console.WriteLine("Invalid input");
+            }
         }
     }
 }
