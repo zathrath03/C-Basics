@@ -118,7 +118,7 @@ namespace ControlFlowExercises
              */
 
             string input;
-            var numbers = new List<int>();
+            var sum = 0;
 
             do
             {
@@ -126,12 +126,12 @@ namespace ControlFlowExercises
                 input = Console.ReadLine() ?? string.Empty;
                 if (int.TryParse(input, out var number))
                 {
-                    numbers.Add(number);
+                    sum += number;
                 }
 
             } while (input.ToLowerInvariant() != "ok");
 
-            Console.WriteLine(numbers.Sum());
+            Console.WriteLine(sum);
         }
 
         private static void Exercise7()
