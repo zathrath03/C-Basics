@@ -155,9 +155,8 @@ namespace ControlFlowExercises
             
             ulong output = 1;
             for (byte i = 1; i <= input; i++)
-            {
                 output *= i;
-            }
+
             Console.WriteLine($"{input}! = {output}");
         }
 
