@@ -15,7 +15,7 @@ namespace ControlFlowExercises
     {
         private static void Main()
         {
-            Exercise8();
+            Exercise9();
         }
 
         private static void Exercise1()
@@ -195,6 +195,20 @@ namespace ControlFlowExercises
                 Console.WriteLine("You lost");
             }
         }
-    }
 
+        private static void Exercise9()
+        {
+            /* Write a program and ask the user to enter a series of numbers
+             * separated by comma. Find the maximum of the numbers and display
+             * it on the console. For example, if the user enters
+             * “5, 3, 8, 1, 4", the program should display 8.
+             */
+
+            Console.WriteLine("Enter a series of numbers separated by commas.");
+            var input = Console.ReadLine();
+            var tokens = input.Split(',');
+            var numbers = Array.ConvertAll(tokens, int.Parse);
+            Console.WriteLine($"The maximum is {numbers.Max()}");
+        }
+    }
 }
