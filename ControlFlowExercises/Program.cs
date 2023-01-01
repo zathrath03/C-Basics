@@ -170,14 +170,13 @@ namespace ControlFlowExercises
              */
 
             var answer = (byte) new Random().Next(1, 11);
-            byte guess = 0;
             Console.WriteLine("I have chosen a number between 1 and 10 (inclusive)");
             Console.WriteLine("You have four chances to guess my number.");
             Console.WriteLine($"The answer is {answer}");
 
             for (byte turn = 1; turn < 5; turn++)
             {
-                
+                byte guess;
                 do
                 {
                     Console.Write($"Turn {turn}: What's your guess? ");
@@ -186,13 +185,11 @@ namespace ControlFlowExercises
 
                 if (guess != answer) continue;
                 Console.WriteLine("You won");
-                break;
+                return;
             }
 
-            if (guess != answer)
-            {
-                Console.WriteLine("You lost");
-            }
+            Console.WriteLine("You lost");
+            
         }
 
         private static void Exercise9()
