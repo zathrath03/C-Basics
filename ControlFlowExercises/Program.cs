@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ControlFlowExercises
+
+/* Note: for all these exercises, ignore input validation unless otherwise
+ * directed. Assume the user enters a value in the format that the program
+ * expects. For example, if the program expects the user to enter a number,
+ * don't worry about validating if the input is a number or not. When testing
+ * your program, simply enter a number.
+ */
 {
     internal class Program
     {
         private static void Main()
         {
-            //Exercise1();
-            //Exercise2();
-            //Exercise3();
-            //Exercise4();
+            Exercise6();
         }
 
         private static void Exercise1()
@@ -91,6 +97,41 @@ namespace ControlFlowExercises
             {
                 Console.WriteLine("Ok");
             }
+        }
+
+        private static void Exercise5()
+        {
+            /* Write a program to count how many numbers between 1 and 100 are
+             * divisible by 3 with no remainder. Display the count on the console.
+             */
+            byte count = 0;
+            for (byte i = 3; i < 100; i += 3)
+                count += 1;
+            Console.WriteLine($"There are {count} numbers evenly divisible by 3 between 1 and 100");
+        }
+
+        private static void Exercise6()
+        {
+            /* Write a program and continuously ask the user to enter a number
+             * or "ok" to exit. Calculate the sum of all the previously
+             * entered numbers and display it on the console.
+             */
+
+            string input;
+            var numbers = new List<int>();
+
+            do
+            {
+                Console.Write("Enter a number or \"ok\" to exit: ");
+                input = Console.ReadLine() ?? string.Empty;
+                if (int.TryParse(input, out var number))
+                {
+                    numbers.Add(number);
+                }
+
+            } while (input.ToLowerInvariant() != "ok");
+
+            Console.WriteLine(numbers.Sum());
         }
     }
 
