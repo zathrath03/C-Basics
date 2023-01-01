@@ -15,7 +15,7 @@ namespace ControlFlowExercises
     {
         private static void Main()
         {
-            Exercise6();
+            Exercise7();
         }
 
         private static void Exercise1()
@@ -132,6 +132,34 @@ namespace ControlFlowExercises
             } while (input.ToLowerInvariant() != "ok");
 
             Console.WriteLine(numbers.Sum());
+        }
+
+        private static void Exercise7()
+        {
+            /* Write a program and ask the user to enter a number. Compute the
+             * factorial of the number and print it on the console. For
+             * example, if the user enters 5, the program should calculate
+             * 5 x 4 x 3 x 2 x 1 and display it as 5! = 120.
+             */
+
+            // ulong can only hold 1.8E18
+            // 20! = 2.4E18, so any value entered 20 or above results in overflow
+            byte input;
+            do
+            {
+                Console.Write("Please enter a positive number below 20: ");
+                try // handling invalid entries
+                    input = Convert.ToByte(Console.ReadLine());
+                catch
+                    input = 20;
+            } while (input > 19);
+            
+            ulong output = 1;
+            for (byte i = 1; i <= input; i++)
+            {
+                output *= i;
+            }
+            Console.WriteLine($"{input}! = {output}");
         }
     }
 
