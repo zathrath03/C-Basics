@@ -87,8 +87,6 @@ namespace ArraysAndListsExercises
                 numbers[i] = number;
             }
 
-
-
             Array.Sort(numbers);
             foreach (var number in numbers)
                 Console.Write(number);
