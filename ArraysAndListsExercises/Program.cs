@@ -7,7 +7,7 @@ namespace ArraysAndListsExercises
     {
         private static void Main()
         {
-            Exercise2();
+            Exercise3();
         }
 
         private static void Exercise1()
@@ -62,6 +62,39 @@ namespace ArraysAndListsExercises
 
             var newName = new string(nameChars);
             Console.WriteLine($"{newName}");
+        }
+
+        private static void Exercise3()
+        {
+            /* Write a program and ask the user to enter 5 numbers. If a number has been previously entered, display an
+             * error message and ask the user to re-try. Once the user successfully enters 5 unique numbers, sort them and
+             * display the result on the console.
+             */
+
+            var numbers = new int[5];
+            var index = 0;
+
+            Console.WriteLine("Please enter five unique numbers.");
+            while (true)
+            {
+                Console.Write("Enter a number: ");
+                var number = Convert.ToInt32(Console.ReadLine());
+                if (Array.Exists(numbers, num => num == number))
+                {
+                    Console.WriteLine($"{number} has already been entered");
+                    continue;
+                }
+                numbers[index++] = number;
+                if (index == 5)
+                    break;
+            }
+
+
+
+            Array.Sort(numbers);
+            foreach (var number in numbers)
+                Console.Write(number);
+            Console.WriteLine();
         }
     }
 }
