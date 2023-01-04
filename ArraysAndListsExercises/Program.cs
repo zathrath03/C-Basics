@@ -72,21 +72,19 @@ namespace ArraysAndListsExercises
              */
 
             var numbers = new int[5];
-            var index = 0;
 
             Console.WriteLine("Please enter five unique numbers.");
-            while (true)
+            for (var i = 0; i < 5; i++)
             {
                 Console.Write("Enter a number: ");
                 var number = Convert.ToInt32(Console.ReadLine());
-                if (Array.Exists(numbers, num => num == number))
+                while (Array.Exists(numbers, num => num == number))
                 {
                     Console.WriteLine($"{number} has already been entered");
-                    continue;
+                    Console.Write("Enter a number: ");
+                    number = Convert.ToInt32(Console.ReadLine());
                 }
-                numbers[index++] = number;
-                if (index == 5)
-                    break;
+                numbers[i] = number;
             }
 
 
