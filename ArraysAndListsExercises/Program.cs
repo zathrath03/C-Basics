@@ -7,7 +7,7 @@ namespace ArraysAndListsExercises
     {
         private static void Main()
         {
-            Exercise3();
+            Exercise4();
         }
 
         private static void Exercise1()
@@ -88,6 +88,29 @@ namespace ArraysAndListsExercises
             }
 
             Array.Sort(numbers);
+            foreach (var number in numbers)
+                Console.Write(number);
+            Console.WriteLine();
+        }
+
+        private static void Exercise4()
+        {
+            /* Write a program and ask the user to continuously enter a number or type "Quit" to exit. The list of numbers
+             * may include duplicates. Display the unique numbers that the user has entered.
+             */
+
+            var numbers = new HashSet<int>();
+
+            while (true)
+            {
+                Console.Write("Enter a number or \"Quit\" to exit: ");
+                var input = Console.ReadLine();
+                if (input == "Quit")
+                    break;
+                numbers.Add(Convert.ToInt32(input));
+            }
+            
+            Console.WriteLine($"You entered the following {numbers.Count} unique numbers");
             foreach (var number in numbers)
                 Console.Write(number);
             Console.WriteLine();
