@@ -100,14 +100,15 @@ namespace ArraysAndListsExercises
              */
 
             var numbers = new HashSet<int>();
+            const string message = "Enter a number or \"Quit\" to exit: ";
+            Console.Write(message);
+            var input = Console.ReadLine();
 
-            while (true)
+            while (input != "Quit")
             {
-                Console.Write("Enter a number or \"Quit\" to exit: ");
-                var input = Console.ReadLine();
-                if (input == "Quit")
-                    break;
                 numbers.Add(Convert.ToInt32(input));
+                Console.Write(message);
+                input = Console.ReadLine();
             }
             
             Console.WriteLine($"You entered the following {numbers.Count} unique numbers");
