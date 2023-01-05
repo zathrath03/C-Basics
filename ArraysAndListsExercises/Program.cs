@@ -104,7 +104,7 @@ namespace ArraysAndListsExercises
             Console.Write(message);
             var input = Console.ReadLine();
 
-            while (input != "Quit")
+            while (input.ToLowerInvariant() != "quit")
             {
                 numbers.Add(Convert.ToInt32(input));
                 Console.Write(message);
