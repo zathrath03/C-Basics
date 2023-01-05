@@ -27,7 +27,7 @@ namespace ArraysAndListsExercises
             while (true) {
                 Console.Write("Enter a name or press enter to finish: ");
                 var input = Console.ReadLine();
-                if (input == string.Empty) break;
+                if (string.IsNullOrWhiteSpace(input)) break;
                 names.Add(input);
             }
 
