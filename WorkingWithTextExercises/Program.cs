@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace WorkingWithTextExercises
     {
         static void Main(string[] args)
         {
-            Exercise1();
+            Exercise2();
         }
 
         private static void Exercise1()
@@ -33,6 +34,30 @@ namespace WorkingWithTextExercises
                 return;
             }
             Console.WriteLine("Consecutive");
+        }
+
+        private static void Exercise2()
+        {
+            /* Write a program and ask the user to enter a few numbers separated by a hyphen. If the user simply presses
+             * Enter, without supplying an input, exit immediately; otherwise, check to see if there are duplicates. If so,
+             * display "Duplicate" on the console.
+             */
+            Console.Write("Enter a few numbers separated by a hyphen: ");
+            var input = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(input)) return;
+            var numbers = Array.ConvertAll(input.Split('-'), Convert.ToInt32);
+            var seen = new HashSet<int>();
+
+            foreach (var number in numbers)
+            {
+                if (seen.Contains(number))
+                {
+                    Console.WriteLine("Duplicate");
+                    return;
+                }
+
+                seen.Add(number);
+            }
         }
     }
 }
