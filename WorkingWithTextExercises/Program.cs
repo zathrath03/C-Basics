@@ -11,7 +11,7 @@ namespace WorkingWithTextExercises
     {
         private static void Main()
         {
-            Exercise2();
+            Exercise4();
         }
 
         private static void Exercise1()
@@ -93,8 +93,7 @@ namespace WorkingWithTextExercises
              * "NumberOfStudents". Make sure that the program is not dependent on the input. So, if the user types "NUMBER OF
              * STUDENTS", the program should still display "NumberOfStudents".
              */
-            Console.Write("Enter a few word separated by a space: ");
-            var words = Console.ReadLine().Split(' ');
+            var words = GetWordsFromConsole();
             var pascalCase = new StringBuilder();
             foreach (var word in words)
             {
@@ -103,6 +102,13 @@ namespace WorkingWithTextExercises
             }
 
             Console.WriteLine(pascalCase);
+        }
+
+        private static IEnumerable<string> GetWordsFromConsole()
+        {
+            Console.Write("Enter a few word separated by a space: ");
+            var input = Console.ReadLine();
+            return string.IsNullOrWhiteSpace(input) ? Array.Empty<string>() : input.Split(' ');
         }
 
         private static void Exercise5()
