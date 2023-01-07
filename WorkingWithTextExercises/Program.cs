@@ -106,8 +106,8 @@ namespace WorkingWithTextExercises
 
             foreach (var c in input)
             {
-                if (!vowels.Contains(c)) continue;
-                count++;
+                if (vowels.Contains(c))
+                    count++;
             }
 
             Console.WriteLine(count);
