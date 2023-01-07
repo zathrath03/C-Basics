@@ -15,7 +15,7 @@ namespace WorkingWithTextExercises
     {
         static void Main(string[] args)
         {
-            Exercise4();
+            Exercise5();
         }
 
         private static void Exercise1()
@@ -91,6 +91,26 @@ namespace WorkingWithTextExercises
             }
 
             Console.WriteLine(pascalCase);
+        }
+
+        private static void Exercise5()
+        {
+            /* Write a program and ask the user to enter an English word. Count the number of vowels (a, e, o, u, i) in the
+             * word. So, if the user enters "inadequate", the program should display 6 on the console.
+             */
+            var vowels = new HashSet<char>() { 'a', 'e', 'i', 'o', 'u' };
+            var count = 0;
+
+            Console.Write("Enter an English word: ");
+            var input = Console.ReadLine();
+
+            foreach (var c in input)
+            {
+                if (!vowels.Contains(c)) continue;
+                count++;
+            }
+
+            Console.WriteLine(count);
         }
     }
 }
