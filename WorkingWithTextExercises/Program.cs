@@ -11,7 +11,7 @@ namespace WorkingWithTextExercises
     {
         private static void Main()
         {
-            Exercise5();
+            Exercise1();
         }
 
         private static void Exercise1()
@@ -20,20 +20,33 @@ namespace WorkingWithTextExercises
              * consecutive. For example, if the input is "5-6-7-8-9" or "20-19-18-17-16", display a message:
              * "Consecutive"; otherwise, display "Not Consecutive".
              */
+            
+            Console.WriteLine(IsConsecutive(GetNumbersFromConsole()) ? "Consecutive" : "Not Consecutive");
+        }
 
-            Console.Write("Enter a few numbers separated by a hyphen: ");
-            var numbers = Array.ConvertAll(Console.ReadLine().Split('-'), Convert.ToInt32);
-            var modifier = numbers[0] < numbers[1] ? (short)1 : (short)-1;
+        private static bool IsConsecutive(IReadOnlyList<int> numbers)
+        {
+            var modifier = DetermineIfIncreasingOrDecreasing(numbers);
 
-            for (byte i = 0; i < numbers.Length - 1; i++)
+            for (byte i = 0; i < numbers.Count - 1; i++)
             {
                 var num = numbers[i];
                 var nextNum = numbers[i + 1];
                 if (num + modifier == nextNum) continue;
-                Console.WriteLine("Not Consecutive");
-                return;
+                return false;
             }
-            Console.WriteLine("Consecutive");
+            return true;
+        }
+
+        private static short DetermineIfIncreasingOrDecreasing(IReadOnlyList<int> numbers)
+        {
+            return numbers[0] < numbers[1] ? (short)1 : (short)-1;
+        }
+
+        private static int[] GetNumbersFromConsole()
+        {
+            Console.Write("Enter a few numbers separated by a hyphen: ");
+            return Array.ConvertAll(Console.ReadLine().Split('-'), Convert.ToInt32);
         }
 
         private static void Exercise2()
