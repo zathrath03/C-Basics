@@ -11,7 +11,7 @@ namespace WorkingWithTextExercises
     {
         private static void Main()
         {
-            Exercise1();
+            Exercise2();
         }
 
         private static void Exercise1()
@@ -57,22 +57,23 @@ namespace WorkingWithTextExercises
              * Enter, without supplying an input, exit immediately; otherwise, check to see if there are duplicates. If so,
              * display "Duplicate" on the console.
              */
-            Console.Write("Enter a few numbers separated by a hyphen: ");
-            var input = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(input)) return;
-            var numbers = Array.ConvertAll(input.Split('-'), Convert.ToInt32);
+            var numbers = GetNumbersFromConsole();
+            if (numbers == Array.Empty<int>()) return;
+            if (HasDuplicates(numbers))
+                Console.WriteLine("Duplicate");
+        }
+
+        private static bool HasDuplicates(IEnumerable<int> numbers)
+        {
             var seen = new HashSet<int>();
 
             foreach (var number in numbers)
             {
                 if (seen.Contains(number))
-                {
-                    Console.WriteLine("Duplicate");
-                    return;
-                }
-
+                    return true;
                 seen.Add(number);
             }
+            return false;
         }
 
         private static void Exercise3()
