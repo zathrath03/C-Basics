@@ -33,8 +33,7 @@ namespace WorkingWithTextExercises
             {
                 var num = numbers[i];
                 var nextNum = numbers[i + 1];
-                if (num + modifier == nextNum) continue;
-                return false;
+                if (num + modifier != nextNum) return false;
             }
             return true;
         }
