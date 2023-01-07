@@ -93,15 +93,19 @@ namespace WorkingWithTextExercises
              * "NumberOfStudents". Make sure that the program is not dependent on the input. So, if the user types "NUMBER OF
              * STUDENTS", the program should still display "NumberOfStudents".
              */
-            var words = GetWordsFromConsole();
+
+            Console.WriteLine(GeneratePascalCase(GetWordsFromConsole()));
+        }
+
+        private static string GeneratePascalCase(IEnumerable<string> words)
+        {
             var pascalCase = new StringBuilder();
             foreach (var word in words)
             {
                 pascalCase.Append(char.ToUpper(word[0]))
                           .Append(word.Substring(1).ToLower());
             }
-
-            Console.WriteLine(pascalCase);
+            return pascalCase.ToString();
         }
 
         private static IEnumerable<string> GetWordsFromConsole()
