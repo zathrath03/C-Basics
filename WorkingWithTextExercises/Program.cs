@@ -102,7 +102,7 @@ namespace WorkingWithTextExercises
             var count = 0;
 
             Console.Write("Enter an English word: ");
-            var input = Console.ReadLine();
+            var input = Console.ReadLine().ToLower();
 
             foreach (var c in input)
             {
