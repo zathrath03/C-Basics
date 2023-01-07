@@ -26,6 +26,7 @@ namespace WorkingWithTextExercises
 
         private static bool IsConsecutive(IReadOnlyList<int> numbers)
         {
+            if (numbers.Count < 2) return true;
             var modifier = DetermineIfIncreasingOrDecreasing(numbers);
 
             for (byte i = 0; i < numbers.Count - 1; i++)
