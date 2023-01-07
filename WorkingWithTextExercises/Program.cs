@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -7,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace WorkingWithTextExercises
 {
+    /* Note: For all these exercises, ignore input validation unless otherwise specified. Assume the user provides input in
+     * the format that the program expects.
+     */
     internal class Program
     {
         static void Main(string[] args)
         {
-            Exercise3();
+            Exercise4();
         }
 
         private static void Exercise1()
@@ -68,6 +72,25 @@ namespace WorkingWithTextExercises
              */
             Console.Write("Enter a time value in the 24-hour time format (e.g. 19:00): ");
             Console.WriteLine(DateTime.TryParse(Console.ReadLine(), out var _) ? "Ok" : "Invalid Time");
+        }
+
+        private static void Exercise4()
+        {
+            /* Write a program and ask the user to enter a few words separated by a space. Use the words to create a
+             * variable name with PascalCase. For example, if the user types: "number of students", display
+             * "NumberOfStudents". Make sure that the program is not dependent on the input. So, if the user types "NUMBER OF
+             * STUDENTS", the program should still display "NumberOfStudents".
+             */
+            Console.Write("Enter a few word separated by a space: ");
+            var words = Console.ReadLine().Split(' ');
+            var pascalCase = new StringBuilder();
+            foreach (var word in words)
+            {
+                pascalCase.Append(char.ToUpper(word[0]))
+                          .Append(word.Substring(1).ToLower());
+            }
+
+            Console.WriteLine(pascalCase);
         }
     }
 }
