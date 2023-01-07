@@ -47,7 +47,8 @@ namespace WorkingWithTextExercises
         private static int[] GetNumbersFromConsole()
         {
             Console.Write("Enter a few numbers separated by a hyphen: ");
-            return Array.ConvertAll(Console.ReadLine().Split('-'), Convert.ToInt32);
+            var input = Console.ReadLine();
+            return string.IsNullOrWhiteSpace(input) ? Array.Empty<int>() : Array.ConvertAll(input.Split('-'), Convert.ToInt32);
         }
 
         private static void Exercise2()
