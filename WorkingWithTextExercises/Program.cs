@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security.Policy;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WorkingWithTextExercises
 {
@@ -13,7 +9,7 @@ namespace WorkingWithTextExercises
      */
     internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             Exercise5();
         }
