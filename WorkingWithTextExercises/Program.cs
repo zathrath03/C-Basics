@@ -99,18 +99,18 @@ namespace WorkingWithTextExercises
              * word. So, if the user enters "inadequate", the program should display 6 on the console.
              */
             var vowels = new HashSet<char>() { 'a', 'e', 'i', 'o', 'u' };
-            var count = 0;
+            var vowelCount = 0;
 
             Console.Write("Enter an English word: ");
             var input = Console.ReadLine().ToLower();
 
             foreach (var c in input)
             {
-                if (!vowels.Contains(c)) continue;
-                count++;
+                if (vowels.Contains(c))
+                    vowelCount++;
             }
 
-            Console.WriteLine(count);
+            Console.WriteLine(vowelCount);
         }
     }
 }
